@@ -22,9 +22,10 @@ dist-ssr/
 
 # Backend / PocketBase
 backend/pb_data/
-# Keep pb_migrations and pb_hooks if you need to track DB schema changes
-# Ignore auxiliary DBs
 backend/*.db
+
+# Secrets (ВНИМАНИЕ: Секретные доступы не пушим!)
+ACCESS.md
 
 # Editor directories and files
 .vscode/*
