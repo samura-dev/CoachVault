@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors - Awwwards Style Ref */
+    --bg-app: #f4f5f7;
+    --bg-card: #ffffff;
+    --bg-sidebar: #ffffff;
+    --bg-hover: #f9fafb;
+    --bg-active: #fff7ed;
+
+    /* Text Colors */
+    --text-primary: #111827;
+    /* Dark almost black */
+    --text-secondary: #6b7280;
+    /* Gray 500 */
+    --text-muted: #9ca3af;
+    /* Gray 400 */
+
+    /* Brand Accent - Warm Orange */
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    --accent-light: #fff7ed;
+    --accent-muted: #ffedd5;
+
+    /* Status Colors */
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --danger: #ef4444;
+    --danger-light: #fee2e2;
+
+    /* UI Elements */
+    --border: #f3f4f6;
+
+    /* Huge Radii for Bento UI */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-2xl: 40px;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Awwwards Components */
+@layer components {
+
+  /* True Glassmorphism Card (for Auth/Overlays) */
+  .sd_glass-card {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/60;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.02),
+      0 10px 15px -3px rgba(0, 0, 0, 0.03),
+      0 30px 60px -10px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  /* Bento Card (Solid white, soft shadow, huge radius) */
+  .sd_bento-card {
+    @apply bg-[var(--bg-card)] rounded-[var(--radius-lg)] p-6;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.01),
+      0 12px 32px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Orange Accent Bento Card */
+  .sd_bento-card-accent {
+    @apply bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-[var(--radius-lg)] p-6 relative overflow-hidden transition-colors;
+    box-shadow:
+      0 12px 32px rgba(249, 115, 22, 0.25);
+  }
+
+  .sd_input {
+    @apply h-14 w-full px-5 rounded-[var(--radius-md)] border-0 border-transparent bg-[#F4F5F7] text-[#111827] focus:outline-none focus:bg-white transition-all placeholder:text-[#9CA3AF] font-medium;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+  }
+
+  .sd_input:focus {
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.01);
+  }
+
+  /* Global Fix for focus accessibility vs design */
+  *:focus {
+    @apply outline-none ring-0;
+  }
+
+  /* Primary Button */
+  .sd_btn-primary {
+    @apply w-full h-14 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold rounded-[var(--radius-md)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3);
+  }
+
+  /* Secondary Button (Dark) */
+  .sd_btn-secondary {
+    @apply w-full h-14 bg-gray-900 hover:bg-black text-white font-semibold rounded-[var(--radius-md)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Custom Scrollbar for inner lists */
+  .sd_custom-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sd_custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sd_custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #E5E7EB;
+    border-radius: 20px;
+  }
+
+  .sd_custom-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: #D1D5DB;
+  }
+}

@@ -7,10 +7,24 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Node
+node_modules/
+dist/
+dist-ssr/
 *.local
+
+# Env
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Backend / PocketBase
+backend/pb_data/
+# Keep pb_migrations and pb_hooks if you need to track DB schema changes
+# Ignore auxiliary DBs
+backend/*.db
 
 # Editor directories and files
 .vscode/*
